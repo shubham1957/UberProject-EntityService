@@ -25,6 +25,8 @@ public class Driver extends BaseModel {
     @Column(nullable = false, unique = true)
     private String licenseNumber;
 
+    private String aadharCard;
+
     private String phoneNumber;
 
     @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
