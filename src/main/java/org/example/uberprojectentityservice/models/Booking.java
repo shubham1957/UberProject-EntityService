@@ -11,8 +11,13 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Booking extends  BaseModel{
 
+// new version of spring boot adds indexes itself, in older version we may need to do this manually as below
+//@Table(indexes = {
+//        @Index(columnList = "driver_id")
+//})
+
+public class Booking extends  BaseModel{
 
     @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
@@ -30,6 +35,12 @@ public class Booking extends  BaseModel{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger; //Many Booking belongs to a person
+
+    @OneToOne
+    private ExactLocation startLocation;
+
+    @OneToOne
+    private ExactLocation endLocation;
 
 
 }

@@ -44,7 +44,9 @@ public class Driver extends BaseModel {
 
     @DecimalMin(value = "0.00", message = "rating must be grater than or equals to 0.00")
     @DecimalMax(value="5.00", message = "rating must be less than or equals to 5.00")
-    private  double rating;
+    private  Double rating;
+
+    private boolean isAvailable;
 
     @OneToMany(mappedBy = "driver")
     @Fetch(FetchMode.SUBSELECT) // to solve N+1 problem
